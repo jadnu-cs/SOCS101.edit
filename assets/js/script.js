@@ -5,8 +5,8 @@
    This will expose window.supabase.
 */
 
-const SUPABASE_URL = "YOUR_SUPABASE_URL_HERE";         // replace or use Netlify env injection
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY_HERE";
+const SUPABASE_URL = "https://aigiahcecfgdrwygqwij.supabase.co";         // replace or use Netlify env injection
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpZ2lhaGNlY2ZnZHJ3eWdxd2lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ1MTY3OTgsImV4cCI6MjA4MDA5Mjc5OH0.ZnCQGV3iSTniq1SVWVHs8u8-J3Ai0Df46ZRKMcG1a5Q";
 
 const sb = window.supabase
     ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
@@ -1048,4 +1048,5 @@ document.addEventListener('keydown', (e) => {
             setTimeout(() => openModal(idx), 200);
         }
     }
+
 })();
