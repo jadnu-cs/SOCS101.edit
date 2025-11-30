@@ -4,17 +4,9 @@
    <script src="https://esm.sh/@supabase/supabase-js@2"></script>
    This will expose window.supabase.
 */
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+window.sb = createClient("https://aigiahcecfgdrwygqwij.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpZ2lhaGNlY2ZnZHJ3eWdxd2lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ1MTY3OTgsImV4cCI6MjA4MDA5Mjc5OH0.ZnCQGV3iSTniq1SVWVHs8u8-J3Ai0Df46ZRKMcG1a5Q");
 
-const SUPABASE_URL = "https://aigiahcecfgdrwygqwij.supabase.co";         // replace or use Netlify env injection
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpZ2lhaGNlY2ZnZHJ3eWdxd2lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ1MTY3OTgsImV4cCI6MjA4MDA5Mjc5OH0.ZnCQGV3iSTniq1SVWVHs8u8-J3Ai0Df46ZRKMcG1a5Q";
-
-const sb = window.supabase
-    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-    : null;
-
-if (!sb) {
-    console.warn("Supabase client not initialized. Add <script src='https://esm.sh/@supabase/supabase-js@2'></script>");
-}
 
 // --- anonymous persistent id per browser (UUID v4)
 function getOrCreateUserId() {
@@ -28,6 +20,25 @@ function getOrCreateUserId() {
     return uid;
 }
 const GUEST_ID = getOrCreateUserId();
+async function loadInitialData() {
+    for (let i = 0; i < artworks.length; i++) {
+        // load comments
+        sessionComments[i] = await loadCommentsFromDB(i);
+
+        // load like count
+        const count = await fetchLikeCount(i);
+
+        // check if this user liked it
+        const { data } = await sb
+            .from('likes')
+            .select('id')
+            .match({ artwork_index: i, user_id: GUEST_ID })
+            .limit(1)
+            .maybeSingle();
+
+        if (data) sessionLikes.add(i);
+    }
+}
 
 // --- Load comments for an artwork index from Supabase
 async function loadCommentsFromDB(artworkIndex) {
@@ -209,6 +220,10 @@ function makeCard(a, i) {
 }
 
 
+window.addEventListener("load", async () => {
+    await loadInitialData();
+    renderAll();
+});
 
 
 function renderAll() {
@@ -227,19 +242,20 @@ function dbCommentToUI(c) {
 }
 
 // Fetch like count
-async function fetchLikeCount(artworkIndex) {
-    if (!sb) return 0;
+async function fetchLikeCount(i) {
     const { count, error } = await sb
-        .from('likes')
-        .select('*', { count: 'exact', head: true })
-        .eq('artwork_index', artworkIndex);
+        .from("likes")
+        .select("*", { count: "exact", head: true })
+        .eq("artwork_index", i);
 
     if (error) {
-        console.error(error);
+        console.error("fetchLikeCount error", error);
         return 0;
     }
+
     return count || 0;
 }
+
 
 // Realtime handlers
 function onRemoteComment(newRow) {
@@ -669,42 +685,50 @@ modalImg.addEventListener('click', (e) => { e.stopPropagation(); });
 })();
 
 // Like button behavior (toggle)
-likeBtn.addEventListener('click', async () => {
+likeBtn.addEventListener("click", async () => {
     if (currentIndex === null) return;
 
-    const likedNow = !sessionLikes.has(currentIndex);
-
-    // optimistically toggle UI
-    if (likedNow) sessionLikes.add(currentIndex); else sessionLikes.delete(currentIndex);
-    updateLikeUI();
+    const isLiked = sessionLikes.has(currentIndex);
 
     try {
-        if (sb) {
-            if (likedNow) {
-                await addLikeToDB(currentIndex);
-            } else {
-                await removeLikeFromDB(currentIndex);
-            }
-            // DB will send realtime updates to all connected clients
+        if (isLiked) {
+            // UNLIKE
+            await removeLikeFromDB(currentIndex);
+            sessionLikes.delete(currentIndex);
+        } else {
+            // LIKE
+            await addLikeToDB(currentIndex);
+            sessionLikes.add(currentIndex);
         }
+
+        // After DB confirms changes → update UI with correct data
+        await updateLikeUI();
+
     } catch (err) {
-        console.error('Like operation failed', err);
-        // rollback UI on error
-        if (likedNow) sessionLikes.delete(currentIndex); else sessionLikes.add(currentIndex);
-        updateLikeUI();
+        console.error("Like toggle failed:", err);
     }
 });
 
 
-function updateLikeUI() {
-    const liked = currentIndex !== null && sessionLikes.has(currentIndex);
-    likeBtn.classList.toggle('liked', liked);
-    likeBtn.classList.toggle('active', liked);
-    likeBtn.setAttribute('aria-pressed', String(Boolean(liked)));
-    likeBtn.title = liked ? 'Liked' : 'Like';
-    const count = liked ? 1 : 0;
-    modalLikeCount.textContent = `${count} like${count !== 1 ? 's' : ''}`;
+
+async function updateLikeUI() {
+    if (currentIndex === null) return;
+
+    const liked = sessionLikes.has(currentIndex);
+
+    // Button visuals
+    likeBtn.classList.toggle("liked", liked);
+    likeBtn.classList.toggle("active", liked);
+    likeBtn.setAttribute("aria-pressed", liked);
+
+    // Get real count from Supabase
+    const count = await fetchLikeCount(currentIndex);
+
+    // Update UI text
+    modalLikeCount.textContent = `${count} like${count !== 1 ? "s" : ""}`;
 }
+
+
 
 // Share button: copy link to clipboard (hash + index)
 shareBtn.addEventListener('click', async () => {
@@ -1048,5 +1072,4 @@ document.addEventListener('keydown', (e) => {
             setTimeout(() => openModal(idx), 200);
         }
     }
-
 })();
