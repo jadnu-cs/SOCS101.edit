@@ -144,13 +144,29 @@ function subscribeRealtime(onComment, onLike) {
 /* ===========================
            Data & gallery rendering
            =========================== */
-const artworks = [
-    { title: "Mga Mukha ng Katiwalian", category: "Visual Arts", description: "Isang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunanIsang mahusay na pagpipinta na naglalarawan ng mga mukha ng katiwalian sa ating lipunan.", artist: "Maria Santos", medium: "Oil on Canvas", category: "visual", year: "2024", image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1200&q=80" },
-    { title: "Sigaw ng Bayan", category: "Visual Arts", description: "Isang abstract na likhang sining na sumasalamin sa sigaw ng mga mamamayan laban sa karahasan at katiwalian.", artist: "Juan dela Cruz", medium: "Mixed Media", category: "visual", year: "2024", image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=1200&q=80" },
-    { title: "Mga Tula ng Protesta", category: "Visual Arts", description: "Koleksyon ng mga tulang Tagalog na mga kwento ng mga taong lumalaban sa katiwalian.", artist: "Lualhati Rivera", medium: "Tula", category: "literature", year: "2024", image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&q=80" },
-    { title: "Poster ng Pagbabago", category: "Visual Arts", description: "Isang makapangyarihang poster na naghihikayat ng pagbabago at pagtindig laban sa katiwalian.", artist: "Ana Cruz", medium: "Graphic Design", category: "applied", year: "2024", image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&q=80" },
-    { title: "Dulang Bayan", category: "Visual Arts", description: "Isang teatro performance na naglalarawan ng mga epekto ng katiwalian sa buhay ng mga mamamayan.", artist: "Liwayway Tan", medium: "Teatro", category: "performance", year: "2024", image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=1200&q=80" }
+
+   const artworks = [
+    { title: "Uhaw sa Hustisya", category: "Visual Arts", description: "", artist: "Inoue", medium: "Digital Drawing", category: "visual", year: "2025", image: "assets/visual arts/labrador.webp" },
+    
+    { title: "Corruption in the Philippines", category: "Visual Arts", description: "", artist: "Nathaniel Esplana", medium: "Drawing", category: "visual", year: "2025", image: "assets/visual arts/belga.webp" },
+    
+    { title: "Lubog sa Korupsyon", category: "Visual Arts", description: "", artist: "Roselyn Sana", medium: "Digital Drawing", category: "visual", year: "2025", image: "assets/visual arts/labrador1.webp" },
+    
+    {title: "Nakikita kita", category: "Visual Arts", description: "", artist: "Shawn Paolo Velasco", medium: "Graphic Drawing", category: "visual", year: "2025", image: "assets/visual art/velasco.webp" },
+    
+    { title: "Katakawan", category: "Visual Arts", description: "", artist: "Jad Paulo Boquiron", medium: "Drawing", category: "visual", year: "2025", image: "assets/visual arts/boquiron.webp" },
+    
+    { title: "Resist, Revolt, Reclaim", category: "Visual Arts", description: "", artist: "Uriel Miguel Carbonell", medium: "Drawing", category: "visual", year: "2025", image: "assets/visual arts/carbonell.webp" },
+
+    { title: "Buwaya sa Politiko", category: "Literary Arts", description: "", artist: "Von Justin Estayani", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/estayani.webp" },
+
+    { title: "Awit ng mga Inakay", category: "Literary Arts", description: "", artist: "Ashley Nicole De Mesa", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/demesa.webp" },
+
+    { title: "Babala may Buaya", category: "Literary Arts", description: "", artist: "Von Justin Estayani", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/isidro.webp" },
+
+    { title: "The Battle Against Corruption: Bringing Back the Light", category: "Literary Arts", description: "", artist: "Von Justin Estayani", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/ramos.webp" }
 ];
+
 
 const grid = document.getElementById('galleryGrid');
 
@@ -1073,3 +1089,4 @@ document.addEventListener('keydown', (e) => {
         }
     }
 })();
+
