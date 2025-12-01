@@ -1,0 +1,6 @@
+change pic -> Webp
+like -> not showing sometimes | cause of problem: when un-liking the loading messed up | sometimes it doesn't show if you liked it already or not you have to restart
+share -> add toast
+comment -> add time interval updates (5secs), double comment
+
+loading -> load all data images/and database data
