@@ -5,25 +5,4 @@ comment -> add time interval updates (5secs), double comment
 
 loading -> load all data images/and database data
 
- const artworks = [
-    { title: "Uhaw sa Hustisya", category: "Visual Arts", description: "", artist: "Inoue", medium: "Digital Drawing", category: "visual", year: "2025", image: "assets/visual arts/labrador.webp" },
-    
-    { title: "Corruption in the Philippines", category: "Visual Arts", description: "", artist: "Nathaniel Esplana", medium: "Drawing", category: "visual", year: "2025", image: "assets/visual arts/belga.webp" },
-    
-    { title: "Lubog sa Korupsyon", category: "Visual Arts", description: "", artist: "Roselyn Sana", medium: "Digital Drawing", category: "visual", year: "2025", image: "assets/visual arts/labrador1.webp" },
-    
-    {title: "Nakikita kita", category: "Visual Arts", description: "", artist: "Shawn Paolo Velasco", medium: "Graphic Drawing", category: "visual", year: "2025", image: "assets/visual art/velasco.webp" },
-    
-    { title: "Katakawan", category: "Visual Arts", description: "", artist: "Jad Paulo Boquiron", medium: "Drawing", category: "visual", year: "2025", image: "assets/visual arts/boquiron.webp" },
-    
-    { title: "Resist, Revolt, Reclaim", category: "Visual Arts", description: "", artist: "Uriel Miguel Carbonell", medium: "Drawing", category: "visual", year: "2025", image: "assets/visual arts/carbonell.webp" },
-
-    { title: "Buwaya sa Politiko", category: "Literary Arts", description: "", artist: "Von Justin Estayani", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/estayani.webp" },
-
-    { title: "Awit ng mga Inakay", category: "Literary Arts", description: "", artist: "Ashley Nicole De Mesa", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/demesa.webp" },
-
-    { title: "Babala may Buaya", category: "Literary Arts", description: "", artist: "Von Justin Estayani", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/isidro.webp" },
-
-    { title: "The Battle Against Corruption: Bringing Back the Light", category: "Literary Arts", description: "", artist: "Von Justin Estayani", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/ramos.webp" }
-
-];
+https://docs.google.com/document/d/1YWt7i24o2Y7FI20fjlsk6sRBTItBYdDr6QQXWPGn5VY/edit?usp=sharing
