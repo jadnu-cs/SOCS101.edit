@@ -152,31 +152,33 @@ function subscribeRealtime(onComment, onLike) {
     
     { title: "Lubog sa Korupsyon", category: "Visual Arts", description: "Lubog sa Korupsyon shows the conflict between two groups; one on the comfort of a throne made from wealth, while the others rise up against them amidst heavy flooding. This artwork aims to depict the reality of governance in the Philippines, highlighting how corruption among politicians leads to the suffering of the Filipino people. It serves as an eye-opener for the Filipinos to be aware of current issues and to inspire them to take part in the fight for our country.", artist: "Roselyn Sana", medium: "Digital Drawing", category: "visual", year: "2025", image: "assets/visual arts/labrador1.webp" },
     
-    {title: "Nakikita kita I", category: "Visual Arts", description: "Nakikita Kita I is about a man who fights to resist two hands covering his eyes. It is meant to symbolize resistance of the oppressed against those in power, revealing the dark truth they force to hide from us. The artwork is a reflection of the artist's criticism of the very system responsible for shaping Philippine society, and how it fails to do so properly.", artist: "Shawn Paolo Velasco", medium: "Graphic Drawing", category: "visual", year: "2025", image: "assets/visual art/velasco.webp" },
+    {title: "Nakikita kita I.", category: "Visual Arts", description: "Nakikita Kita I is about a man who fights to resist two hands covering his eyes. It is meant to symbolize resistance of the oppressed against those in power, revealing the dark truth they force to hide from us. The artwork is a reflection of the artist's criticism of the very system responsible for shaping Philippine society, and how it fails to do so properly.", artist: "Shawn Paolo Velasco", medium: "Graphic Drawing", category: "visual", year: "2025", image: "assets/visual arts/velasco.webp" },
     
     { title: "Katakawan", category: "Visual Arts", description: "“Katawakan” uses an image of a pig to represent the corrupt politicians in our country. This editorial cartoon criticizes their greed and calls out the two-faced actions they make. In response to the recent issue in ghost flood control projects, the artwork points out why our funds are being spent on niche projects instead of being allocated towards more relevant and progressive projects. ", artist: "Jad Paulo Boquiron", medium: "Drawing", category: "visual", year: "2025", image: "assets/visual arts/boquiron.webp" },
     
-    { title: "Resist, Revolt, Reclaim", category: "Visual Arts", description: "As the title suggests, this artwork pushes us to resist corruption, revolt against injustice, and reclaim what is rightfully ours. With its striking red visuals, it conveys a powerful emotion which encourages viewers to take necessary actions and not just stand idly. The piece calls for a movement that helps challenge those who abuse their power, rising against cruelty, injustice, and corruption.", artist: "Uriel Miguel Carbonell", medium: "Drawing", category: "visual", year: "2025", image: "assets/visual arts/carbonell.webp" },
+    { title: "Resist, Revolt, Reclaim", category: "Visual Arts", description: "As the title suggests, this artwork pushes us to resist corruption, revolt against injustice, and reclaim what is rightfully ours. With its striking red visuals, it conveys a powerful emotion which encourages viewers to take necessary actions and not just stand idly. The piece calls for a movement that helps challenge those who abuse their power, rising against cruelty, injustice, and corruption.", artist: "Uriel Miguel Carbonell", medium: "Digital Design", category: "visual", year: "2025", image: "assets/visual arts/carbonell.webp" },
 
-    { title: "Buwaya sa Politiko", category: "Literary Arts", description: "Mga Buwaya sa Politika depicts important issues such as bureaucratic capitalism, nepotism, abuse of power, and the suffering of ordinary citizens through a Bicolano tigsik. It conveys the harsh reality of corruption while expressing the artist’s frustration, concern for the youth and marginalized sectors, and desire for justice and reform. The poem functions as a social commentary and political critique, aiming to encourage citizens to be critical and speak out against injustice.", artist: "Von Justin Estayani", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/estayani.webp" },
+    { title: "Buwaya sa Politiko", category: "Literary Arts", description: "Mga Buwaya sa Politika depicts important issues such as bureaucratic capitalism, nepotism, abuse of power, and the suffering of ordinary citizens through a Bicolano tigsik. It conveys the harsh reality of corruption while expressing the artist's frustration, concern for the youth and marginalized sectors, and desire for justice and reform. The poem functions as a social commentary and political critique, aiming to encourage citizens to be critical and speak out against injustice.", artist: "Von Justin Estayani", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/estayani.webp" },
 
     { title: "Awit ng mga Inakay", category: "Literary Arts", description: "Awit ng mga Inakay is a poem focused on the contrast between the Filipino people as birds and the mandaragit, representing those in power. This literary piece uses symbolism in depicting the current state of our society with the dynamic between birds of prey and predatory birds. It serves to call out both people in power and those who choose to stay silent despite all that happened across time, pushing us to finally face the “Mandaragit” in our country.", artist: "Ashley Nicole De Mesa", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/demesa.webp" },
 
-    { title: "Babala may Buaya", category: "Literary Arts", description: "The acrostic poem uses the image of buayas (crocodiles) as a metaphor to reveal the hidden danger of corrupt officials in positions of power. A buaya symbolizes someone who pretends to be calm or harmless but strikes when there’s something to gain, just like a crocodile waits silently before attacking. By comparing leaders to predators, the poem shows how the nation’s resources are exploited while the country suffer.", artist: "Von Justin Estayani", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/isidro.webp" },
+    { title: "Babala may Buaya", category: "Literary Arts", description: "The acrostic poem uses the image of buayas (crocodiles) as a metaphor to reveal the hidden danger of corrupt officials in positions of power. A buaya symbolizes someone who pretends to be calm or harmless but strikes when there's something to gain, just like a crocodile waits silently before attacking. By comparing leaders to predators, the poem shows how the nation's resources are exploited while the country suffer.", artist: "Von Justin Estayani", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/isidro.webp" },
 
-    { title: "The Battle Against Corruption: Bringing Back the Light", category: "Literary Arts", description: "The acrostic poem uses the image of buayas (crocodiles) as a metaphor to reveal the hidden danger of corrupt officials in positions of power. A buaya symbolizes someone who pretends to be calm or harmless but strikes when there’s something to gain, just like a crocodile waits silently before attacking. By comparing leaders to predators, the poem shows how the nation's resources are exploited while the country suffer.", artist: "Yzan France Ramos", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/ramos.webp" },
+    { title: "The Battle Against Corruption: Bringing Back the Light", category: "Literary Arts", description: "The acrostic poem uses the image of buayas (crocodiles) as a metaphor to reveal the hidden danger of corrupt officials in positions of power. A buaya symbolizes someone who pretends to be calm or harmless but strikes when there's something to gain, just like a crocodile waits silently before attacking. By comparing leaders to predators, the poem shows how the nation's resources are exploited while the country suffer.", artist: "Yzan France Ramos", medium: "Digital Text", category: "literature", year: "2025", image: "assets/literary arts/ramos.webp" },
 
-    { title: "The Divided Flower", category: "Applied Arts", description: "This symbolic artwork of a flower represents two sides of government, one side being vibrant and thriving, the other showing decay and corruption. “The Divided Flower” shows that even something as pure as a flower can be corrupted—just as any system, no matter how beautiful, can be flawed when exploited. The art not only acts as decoration but also raises awareness through the artist’s personal thoughts on leadership, honesty, and corruption.", artist: "Joshua Napay", medium: "Recycled Art", category: "applied", year: "2025", image: "assets/applied arts/napay.webp" },
+    { title: "The Divided Flower", category: "Applied Arts", description: "This symbolic artwork of a flower represents two sides of government, one side being vibrant and thriving, the other showing decay and corruption. “The Divided Flower” shows that even something as pure as a flower can be corrupted—just as any system, no matter how beautiful, can be flawed when exploited. The art not only acts as decoration but also raises awareness through the artist's personal thoughts on leadership, honesty, and corruption.", artist: "Joshua Napay", medium: "Crafts", category: "applied", year: "2025", image: "assets/applied arts/napay.webp" },
 
-    { title: "Nakikita kita II. ", category: "Applied Arts", description: "The artwork is focused on a girl whose eyes are covered with hands on top of her blindfolds. “Nakikita Kita II” tells us a message about seeing through the tricks, lies, and deception of the corrupt despite their elaborate attempts in keeping us within their grasp. It is a form of personal expression for the artist, transforming a piece of clothing into a means of spreading awareness against corruption and the people who oppress us.", artist: "Shawn Paolo Velasco", medium: "T-shirt print", category: "applied", year: "2025", image: "assets/applied arts/velasco.webp" },
+    { title: "Nakikita kita II. ", category: "Applied Arts", description: "The artwork is focused on a girl whose eyes are covered with hands on top of her blindfolds. “Nakikita Kita II” tells us a message about seeing through the tricks, lies, and deception of the corrupt despite their elaborate attempts in keeping us within their grasp. It is a form of personal expression for the artist, transforming a piece of clothing into a means of spreading awareness against corruption and the people who oppress us.", artist: "Shawn Paolo Velasco", medium: "T-Shirt Print", category: "applied", year: "2025", image: "assets/applied arts/velasco1.webp" },
 
-    { title: "Barong ng Buwaya", category: "Applied Arts", description: "The crocodiles in barong Tagalog represent corrupt officials hiding behind respectability, revealing how abuse of power leads to poverty and public suffering.", artist: "Jomari Tan", medium: "T-shirt print", category: "applied", year: "2025", image: "assets/applied arts/salvino1.webp" },
+    { title: "Barong ng Buwaya", category: "Applied Arts", description: "The crocodiles in barong Tagalog represent corrupt officials hiding behind respectability, revealing how abuse of power leads to poverty and public suffering.", artist: "Jomari Tan", medium: "T-Shirt Print", category: "applied", year: "2025", image: "assets/applied arts/salvino1.webp" },
 
-    { title: "Ginintuang Kasinungalingan", category: "Applied Arts", description: " As an applied artwork, it serves as wearable advocacy that expresses political beliefs, spreads social awareness, and transforms clothing into a moving canvas for protest and dialogue.", artist: "Jomari Tan", medium: "T-shirt print", category: "applied", year: "2025", image: "assets/applied arts/salvino2.webp" },
+    { title: "Ginintuang Kasinungalingan", category: "Applied Arts", description: " As an applied artwork, it serves as wearable advocacy that expresses political beliefs, spreads social awareness, and transforms clothing into a moving canvas for protest and dialogue.", artist: "Jomari Tan", medium: "T-Shirt Print", category: "applied", year: "2025", image: "assets/applied arts/salvino2.webp" },
 
-    { title: "Baon ng Buwaya", category: "Applied Arts", description: "The artwork addresses political corruption in the Philippines through an allegorical design that uses crocodiles as symbols of greed, power abuse, and exploitation", artist: "Jomari Tan", medium: "T-shirt print", category: "applied", year: "2025", image: "assets/applied arts/salvino.webp" }, 
+    { title: "Baon ng Buwaya", category: "Applied Arts", description: "The artwork addresses political corruption in the Philippines through an allegorical design that uses crocodiles as symbols of greed, power abuse, and exploitation", artist: "Jomari Tan", medium: "T-Shirt Print", category: "applied", year: "2025", image: "assets/applied arts/salvino.webp" }, 
 
-];
+
+
+];  
 
 const grid = document.getElementById('galleryGrid');
 
@@ -231,7 +233,7 @@ function makeCard(a, i) {
                 ${descHtml}
             </div>
 
-            <div class="meta"><span>${a.medium || ''}</span><span> Â· ${a.year || ''}</span></div>
+            <div class="meta"><span>${a.medium || ''}</span><span> ${a.year || ''}</span></div>
         </div>
     `;
 
@@ -998,6 +1000,15 @@ const obs = new IntersectionObserver((entries) => {
 
 obs.observe(hero);
 
+// Nav scroll detection
+main.addEventListener('scroll', () => {
+    if (main.scrollTop > 50) {
+        topNav.classList.add('scrolled');
+    } else {
+        topNav.classList.remove('scrolled');
+    }
+});
+
 // Hero -> guided scroll to next (wheel/touch are attached to main)
 let locking = false;
 
@@ -1012,13 +1023,16 @@ function lockScrollToNext() {
     setTimeout(() => {
         locking = false;
         heroInner.classList.remove('animated');
-    }, 900);
+    }, 600);
 }
 
 main.addEventListener('wheel', (e) => {
-    if (main.scrollTop > 60) return;
+    // Only lock scroll if in hero section (scrollTop near top)
+    if (main.scrollTop > 200) return;
+    // Ignore tiny scroll events
     if (Math.abs(e.deltaY) < 6) return;
-    if (e.deltaY > 0) {
+    // Only prevent default on large downward scroll in hero area
+    if (e.deltaY > 0 && main.scrollTop < 50) {
         e.preventDefault();
         lockScrollToNext();
     }
@@ -1029,7 +1043,8 @@ main.addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }
 main.addEventListener('touchend', e => {
     if (!touchStartY) return;
     const dy = touchStartY - (e.changedTouches[0].clientY);
-    if (main.scrollTop <= 60 && dy > 40) lockScrollToNext();
+    // Only trigger lock in hero section (when scrollTop is very small)
+    if (main.scrollTop < 50 && dy > 40) lockScrollToNext();
     touchStartY = null;
 }, { passive: true });
 
@@ -1042,6 +1057,18 @@ const heroFrame = document.getElementById('heroFrame');
 const heroFrameOverlay = document.getElementById('heroFrameOverlay');
 const heroFrameFullImg = document.getElementById('heroFrameFullImg');
 const heroImg = heroFrame.querySelector('img');
+
+// Add spinning animation that stops after 60 seconds
+if (heroFrame) {
+    console.log('Starting hero frame spin');
+    heroFrame.classList.add('spinning');
+    setTimeout(() => {
+        console.log('Stopping hero frame spin');
+        heroFrame.classList.remove('spinning');
+    }, 60000); // 60 seconds
+} else {
+    console.error('heroFrame element not found');
+}
 
 heroFrame.addEventListener('click', () => {
     heroFrameFullImg.src = heroImg.src;

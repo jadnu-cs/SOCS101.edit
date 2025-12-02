@@ -28,6 +28,42 @@
     }
 }
 
+/* --- ANIMATED BACKGROUND PARTICLES --- */
+@keyframes backgroundPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 43, 43, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 43, 43, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+    animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+/* --- HEROFRAME SPIN ANIMATION --- */
+@keyframes spinSlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.cframe.spinning {
+    animation: spinSlow 6s linear infinite;
+    transition: none !important;
+}
+
 :root {
     --bg: #050405;
     --muted: #bdbdbd;
@@ -46,6 +82,7 @@ html,
 body {
     height: 100%;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -83,7 +120,12 @@ nav {
     backdrop-filter: blur(6px);
     z-index: 9999;
     border-bottom: 1px solid rgba(255, 0, 0, 0.07);
-    transition: transform .42s ease, opacity .42s ease;
+    transition: transform .42s ease, opacity .42s ease, box-shadow .3s ease;
+}
+
+nav.scrolled {
+    box-shadow: 0 4px 20px rgba(255, 43, 43, 0.1);
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.7));
 }
 
 nav.hidden {
@@ -112,6 +154,27 @@ nav.hidden {
     color: var(--muted);
     text-decoration: none;
     font-weight: 600;
+    position: relative;
+    transition: color .3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width .3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .user-profile {
@@ -186,6 +249,25 @@ header {
     .cta-row {
         justify-content: center;
     }
+
+    /* Tablet modal adjustments */
+    .modal-card {
+        grid-template-columns: 1fr 320px;
+        height: min(90vh, 700px);
+    }
+
+    .modal-right {
+        max-height: 90vh;
+    }
+
+    /* Tablet nav */
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links a::after {
+        height: 1.5px;
+    }
 }
 
 @media (max-width:680px) {
@@ -208,6 +290,66 @@ header {
         width: auto;
         height: auto;
     }
+
+    /* Mobile nav improvements */
+    nav {
+        height: 64px;
+        padding: 0 16px;
+    }
+
+    .logo {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 0.9rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .nav-links a::after {
+        bottom: -2px;
+        height: 1.5px;
+    }
+
+    .user-profile {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Mobile title adjustments */
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .lead {
+        font-size: 0.95rem;
+    }
+
+    /* Mobile modal improvements */
+    .modal-card {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .hero-frame-overlay img {
+        max-width: 95vw;
+        max-height: 85vh;
+    }
+
+    /* Prevent animation issues on small screens */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
 }
 
 .main-title {
@@ -216,6 +358,13 @@ header {
     font-weight: 900;
     line-height: 1.02;
     margin-bottom: 14px;
+    cursor: pointer;
+    transition: text-shadow .3s ease, transform .3s ease;
+}
+
+.main-title:hover {
+    text-shadow: 0 0 20px rgba(255, 43, 43, 0.6), 0 0 40px rgba(255, 43, 43, 0.3);
+    transform: scale(1.02);
 }
 
 .lead {
@@ -291,14 +440,16 @@ header {
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity .3s ease;
+    transition: opacity .4s cubic-bezier(.2, .9, .3, 1), backdrop-filter .4s ease;
     z-index: 99998;
     cursor: pointer;
+    backdrop-filter: blur(0px);
 }
 
 .hero-frame-overlay.open {
     opacity: 1;
     pointer-events: auto;
+    backdrop-filter: blur(8px);
 }
 
 .hero-frame-overlay img {
@@ -306,7 +457,19 @@ header {
     max-height: 90vh;
     object-fit: contain;
     border-radius: 12px;
-    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 43, 43, 0.2);
+    animation: imageZoomIn .4s cubic-bezier(.2, .9, .3, 1) forwards;
+}
+
+@keyframes imageZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .category-section {
@@ -485,13 +648,15 @@ header {
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity .24s;
+    transition: opacity .4s cubic-bezier(.2, .9, .3, 1), backdrop-filter .4s ease;
     z-index: 99999;
+    backdrop-filter: blur(0px);
 }
 
 .modal.open {
     opacity: 1;
     pointer-events: auto;
+    backdrop-filter: blur(8px);
 }
 
 .modal-card {
@@ -503,6 +668,24 @@ header {
     grid-template-columns: 1fr 380px;
     overflow: hidden;
     position: relative;
+    animation: modalSlideIn .4s cubic-bezier(.2, .9, .3, 1) forwards;
+    opacity: 0;
+}
+
+.modal.open .modal-card {
+    animation: modalSlideIn .4s cubic-bezier(.2, .9, .3, 1) forwards;
+    opacity: 1;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .modal-left {
@@ -513,6 +696,7 @@ header {
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    box-shadow: inset 0 0 30px rgba(255, 43, 43, 0.1);
 }
 
 .modal-left img {
@@ -521,6 +705,12 @@ header {
     object-fit: contain;
     user-select: none;
     -webkit-user-drag: none;
+    transition: transform .3s ease, filter .3s ease;
+}
+
+.modal-left:hover img {
+    transform: scale(1.03);
+    filter: brightness(1.05);
 }
 
 .modal-right {
@@ -541,6 +731,14 @@ header {
     color: #111;
     cursor: pointer;
     font-weight: 700;
+    transition: all .3s ease;
+    box-shadow: 0 4px 12px rgba(255, 43, 43, 0.2);
+}
+
+.modal-close:hover {
+    background: #ff4646;
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(255, 43, 43, 0.4);
 }
 
 .modal-description {
@@ -908,12 +1106,10 @@ header {
         gap: 12px;
         max-height: 50vh;
         overflow: hidden;
-        /* Changed from overflow-y: auto */
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
         position: relative;
         background: linear-gradient(180deg, #0d0d0d, #141414);
-        /* Ensure background fills */
     }
 
     .modal-description {
@@ -971,6 +1167,144 @@ header {
         flex: 1;
         min-height: 200px;
         max-height: 500px;
+    }
+
+    /* Mobile backdrop blur optimization */
+    .modal,
+    .hero-frame-overlay {
+        backdrop-filter: blur(4px);
+    }
+
+    .modal.open,
+    .hero-frame-overlay.open {
+        backdrop-filter: blur(6px);
+    }
+
+    /* Reduce animations on mobile for performance */
+    @media (max-width: 480px) {
+        .cframe.spinning {
+            animation-duration: 8s;
+        }
+
+        body::before {
+            animation-duration: 12s;
+        }
+
+        .modalSlideIn {
+            animation-duration: 0.3s;
+        }
+
+        .imageZoomIn {
+            animation-duration: 0.3s;
+        }
+    }
+}
+
+/* Ultra-small screens (< 480px) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    nav {
+        height: 56px;
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+        gap: 8px;
+        font-size: 0.8rem;
+    }
+
+    .nav-links a {
+        font-size: 0.75rem;
+    }
+
+    .hero-inner {
+        gap: 12px;
+        padding: 24px 12px;
+    }
+
+    .main-title {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+    }
+
+    .lead {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+
+    .cta-row {
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .btn {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+
+    .cframe {
+        width: 160px;
+        height: 160px;
+    }
+
+    .snap-section {
+        min-height: 100vh;
+        padding-top: 56px;
+    }
+
+    #hero {
+        padding-top: 0;
+    }
+
+    header {
+        min-height: calc(100vh - 56px);
+    }
+
+    .category-section {
+        padding: 12px 8px;
+    }
+
+    .tabs {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .tab {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    /* Touch-friendly button sizing */
+    button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .modal-card {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .insta-btn {
+        padding: 8px;
+    }
+
+    .insta-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .modal-right-content {
+        padding: 20px 16px;
     }
 }
 
