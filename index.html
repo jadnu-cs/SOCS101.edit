@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Sining Laban sa Katiwalian â€“ Virtual Museum</title>
+    <title>Sining Laban sa Katiwalian Virtual Museum</title>
     <meta name="theme-color" content="#0b0202" />
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -97,7 +97,16 @@
     <!-- Modal (contains IG-like buttons + double-tap on modal-left image) -->
     <div id="modal" class="modal" aria-hidden="true">
         <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div class="modal-left" id="modalLeft"><img id="modalImg" src="" alt=""></div>
+            <div class="modal-left" id="modalLeft"><img id="modalImg" src="" alt=""><iframe
+    id="modalVideoEmbed"
+    style="display:none; width:100%; height:100%; border-radius:12px;"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+></iframe>
+
+</div>
+            
             <div class="modal-right">
                 <button class="modal-close" id="closeModal">X</button>
                 <div class="modal-right-content">
