@@ -1,8 +1,0 @@
-change pic -> Webp
-like -> not showing sometimes | cause of problem: when un-liking the loading messed up | sometimes it doesn't show if you liked it already or not you have to restart | sometimes loading the likes of wrong artindex, its delayed lets have a delay or set it at 0 or - before updating | unliking works on front end only and 
-share -> add toast
-comment -> add time interval updates (5secs), double comment
-
-loading -> load all data images/and database data
-
-https://docs.google.com/document/d/1YWt7i24o2Y7FI20fjlsk6sRBTItBYdDr6QQXWPGn5VY/edit?usp=sharing
