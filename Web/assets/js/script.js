@@ -1410,6 +1410,14 @@ const obs = new IntersectionObserver((entries) => {
 
 obs.observe(hero);
 
+// Nav scroll detection
+main.addEventListener('scroll', () => {
+    if (main.scrollTop > 50) {
+        topNav.classList.add('scrolled');
+    } else {
+        topNav.classList.remove('scrolled');
+    }
+});
 // Hero -> guided scroll to next (wheel/touch are attached to main)
 let locking = false;
 
@@ -1455,6 +1463,17 @@ const heroFrameOverlay = document.getElementById('heroFrameOverlay');
 const heroFrameFullImg = document.getElementById('heroFrameFullImg');
 const heroImg = heroFrame.querySelector('img');
 
+// Add spinning animation that stops after 60 seconds
+if (heroFrame) {
+    console.log('Starting hero frame spin');
+    heroFrame.classList.add('spinning');
+    setTimeout(() => {
+        console.log('Stopping hero frame spin');
+        heroFrame.classList.remove('spinning');
+    }, 60000); // 60 seconds
+} else {
+    console.error('heroFrame element not found');
+}
 heroFrame.addEventListener('click', () => {
     heroFrameFullImg.src = heroImg.src;
     heroFrameFullImg.alt = heroImg.alt;
@@ -1512,7 +1531,6 @@ document.addEventListener('keydown', (e) => {
     }
 })();
 
-// User Profile Setup
 // User Profile Setup
 (function setupUserProfile() {
     const setupModal = document.getElementById('userSetupModal');
